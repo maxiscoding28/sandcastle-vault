@@ -43,7 +43,6 @@ variable "subnet_id_a" {
 variable "subnet_id_b" {
   type = string
 }
-
 variable "security_group_id" {
   type = string
 }
