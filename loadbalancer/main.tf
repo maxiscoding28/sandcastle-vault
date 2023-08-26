@@ -10,6 +10,7 @@ variable "subnet_ids" {
 variable "security_group_id" {
     type = string
 }
+#ALB
 resource "aws_lb" "sandcastle_vault_primary" {
   count              = var.mode == "alb" ? 1 : 0
   name               = "sandcastle-vault-primary"
@@ -42,11 +43,8 @@ resource "aws_lb_listener" "sandcastle_vault_primary" {
   }
 }
 
-# ALB Secondary
+#NLB
 
-# NLB Primary
-
-# NLB Secondar
 
 output "sandcastle_vault_primary_target_group_id" {
   value = var.mode == "alb" ? aws_lb_target_group.sandcastle_vault_primary[0].id : ""

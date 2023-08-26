@@ -21,12 +21,13 @@ This repository was developed with support engineers mind. It can be useful for 
 - Allow scripts to execute
 - Set vars you need
 - Create Raft Instance
-- Scale uo and down as needed
+- Scale up and down as needed
 
 ## What else can I do?
 ### Dynamic Versioning
 ### Replication mode
 ### Consul mode
+    - Importance of scaling in raft nodes before scaling up consul nodes
 ### Load Banacer Mode
 #### alb
 #### nlb
