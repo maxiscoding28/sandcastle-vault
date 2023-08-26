@@ -21,15 +21,14 @@ This repository was developed with support engineers mind. It can be useful for 
 - Allow scripts to execute
 - Set vars you need
 - Create Raft Instance
-- Scale in and out
+- Scale uo and down as needed
 
 ## What else can I do?
-- Consul mode
-- Dynamically adjust versions
-- Load balancer mode
-  - alb
-  - nlb
-- Add_Agent
-  - Point to primary or secondary (default primary)
-- add_lambda
-  - Point to primary or secondary (default primary)
+### Dynamic Versioning
+### Replication mode
+### Consul mode
+### Load Banacer Mode
+#### alb
+#### nlb
+### Add Agent
+### Add Lambda
