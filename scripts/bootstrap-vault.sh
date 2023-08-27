@@ -240,7 +240,7 @@ alias vrt="cat /home/vault/init.json  | jq -r '.root_token' | vault login -"
 alias http="echo \$VAULT_ADDR | sed 's/http/https/'"
 alias https="echo \$VAULT_ADDR | sed 's/https/http/'"
 
-# "vault nuke" - Shortcut for stopping vault systemd and remove data directory
+# "vault nuke" - Shortcut for stopping vault systemd and removing data directory
 vn () {
     sudo systemctl stop vault
     sudo rm -rf /opt/vault/data/*
@@ -250,15 +250,26 @@ EOF
 if [[ ${storage_backend} == "consul" ]]; then
 cat > /etc/profile.d/consul.sh << EOF
 export PS1="\[\033[0;31m\]\u@\[\033[0m\]$INSTANCE_ID "
-alias nukeconsul="sudo rm -rf /opt/consul/*"
-alias cl="journalctl -fu consul"
+
+# Shortcut for printing the current consul configuration file to the terminal
 alias pc="cat /etc/consul.d/config.hcl"
+
+# Shortcut for opening the current consul configuration file in vim
 alias vc="sudo vim /etc/consul.d/config.hcl"
+
+# Shortcut for tailing consul systemd logs
+alias cl="journalctl -f -u consul"
+
+# "consul nuke" - Shortcut for stopping consul systemd and removing data directory
+vn () {
+    sudo systemctl stop consul
+    sudo rm -rf /opt/consul/data/*
+}
 EOF
 fi
 
 # Start services
-systemctl start vault
 if [[ ${storage_backend} == "consul" ]]; then
 systemctl start consul
 fi
+systemctl start vault
