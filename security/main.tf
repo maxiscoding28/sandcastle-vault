@@ -71,6 +71,9 @@ resource "aws_security_group" "sandcastle_vault" {
   name        = "sandcastle_vault_sg"
   description = "Security group for a Vault cluster using Integrated Storage"
   vpc_id      = var.vpc_id
+  tags = {
+    Name = "sandcastle_vault"
+  }
 }
 resource "aws_vpc_security_group_ingress_rule" "sandcastle_vault_ssh_from_local" {
   description       = "SSH from local IP"
@@ -153,7 +156,7 @@ resource "aws_security_group" "sandcastle_vault_on_consul" {
   }
 }
 resource "aws_security_group" "sandcastle_vault_from_local_to_loadbalancer" {
-  name        = "sandcastle_vault_from_local_to_loadbalancer"
+  name        = "sandcastle_vault_from_local_to_loadbalancer_sg"
   count       = var.load_balancer_mode != "none" ? 1 : 0
   description = "Security group from local to load balancer"
   vpc_id      = var.vpc_id
