@@ -10,7 +10,7 @@ This repository was developed with support engineers mind. It can be useful for 
 
 ### What You'll Need
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) installed
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed
+- [Aws Cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed
 - [jq](https://stedolan.github.io/jq/) installed
 - A valid [Amazon EC2 Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html)
 - An AWS account capable of creating all the required resources
@@ -18,18 +18,23 @@ This repository was developed with support engineers mind. It can be useful for 
 - A valid [Consul Enterprise license](https://developer.hashicorp.com/consul/docs/enterprise) (if you're using Consul storage)
 
 ## Quick Start
-- Allow scripts to execute
+- Grant permission to execute bootstrap scripts:
+```
+chmod u+x ./scripts
+```
 - Set vars you need
-- Create Raft Instance
-- Scale up and down as needed
+- Create you first Vault node
+- Scale up
+- Scale down
 
 ## What else can I do?
+### Consul mode
 ### Dynamic Versioning
 ### Replication mode
-### Consul mode
-    - Importance of scaling in raft nodes before scaling up consul nodes
 ### Load Banacer Mode
 #### alb
 #### nlb
 ### Add Agent
+_In Progress_
 ### Add Lambda
+_In ProgresS_
