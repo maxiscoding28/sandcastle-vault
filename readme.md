@@ -160,7 +160,7 @@ vn () {
 replication_mode = true
 ```
 ### Auto-join with ASG scale-in/scale-out
-**Scale your vault cluster in and out by updating the `primary_cluster_server_count` variable and/or `secondary_cluster_server_count` variable (if in replication_mode). New nodes will automatically join their respective cluster via cloud auto-join and retry_join**.
+**Scale your vault cluster in and out by updating the `primary_cluster_server_count` variable and/or `secondary_cluster_server_count` variable (if in `replication_mode`). New nodes will automatically join their respective cluster via cloud auto-join and retry_join**.
 
 ### Consul mode
 **To use vault nodes with a Consul backend, simply add the following variables to your `main.tfvars` file:**
