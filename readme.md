@@ -192,7 +192,3 @@ load_balancer_mode = "nlb"
 # Default - no load balancer is created
 load_balancer_mode = "none"
 ```
-### Add Agent
-_In Progress_
-### Add Lambda
-_In ProgresS_
