@@ -160,10 +160,15 @@ vn () {
 replication_mode = true
 ```
 ### Auto-join with ASG scale-in/scale-out
-**Scale your vault cluster in and out by updating the `primary_cluster_server_count` variable and/or `secondary_cluster_server_count` variable (if in `replication_mode`). New nodes will automatically join their respective cluster via cloud auto-join and retry_join**.
+**Scale your vault cluster in and out by updating the `primary_cluster_server_count` variable and/or `secondary_cluster_server_count` variable (if in `replication_mode`). 
+
+New nodes will automatically join their respective cluster via cloud auto-join and retry_join:**.
+```
+retry_join = ["provider=aws tag_key=join tag_value=sandcastle_vault_consul_storage_${cluster} region=${region}"]
+```
 
 ### Consul mode
-**To use vault nodes with a Consul backend, simply add the following variables to your `main.tfvars` file:**
+**To use vault nodes with a consul backend, add the following variables to your `main.tfvars` file:**
 ```
 storage_backend = "consul"
 
@@ -171,7 +176,7 @@ storage_backend = "consul"
 primary_cluster_consul_storage_server_count = 1
 
 # This value to be greater than 0 if replication is enabled and you are provisioning new nodes for the secondary cluster
-secondary_cluster_consul_storage_server_count
+secondary_cluster_consul_storage_server_count = 1
 ```
 ### Dynamic Versioning
 **Both the vault and consul versions for new nodes can be updated using the following variables in your `main.tfvars` file:**
