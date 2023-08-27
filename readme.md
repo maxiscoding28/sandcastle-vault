@@ -180,8 +180,8 @@ vault_version = "1.13.1+ent"
 consul_version = "1.15.0+ent"
 ```
 **If you set these values to a non-enterprise version, you do not need to provide the variables `vault_license` and `consul_license`**
-### Load Banacer Mode
-**The variable `load_balancer_mode` provisions a pre-configured load balanacer, listener and target group pointed at the ASG for your primary Vault cluster. If `replication_mode` is enabled it will also provision one for your secondary cluster. The available values for this variable are:**
+### Load Balancer Mode
+**The variable `load_balancer_mode` provisions a pre-configured load balancer, listener and target group pointed at the ASG for your primary Vault cluster. If `replication_mode` is enabled it will also provision one for your secondary cluster. The available values for this variable are:**
 ```
 # Creates an application load balancer
 load_balancer_mode = "alb"
